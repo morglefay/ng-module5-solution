@@ -1,0 +1,38 @@
+<div class="container">
+	<!--No saved user -->
+	<div id="info" ng-if="myinfoCtrl.savedData.length == 0">
+	Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a> 
+	</div>
+
+	<!--Show saved user -->
+	<div id="info" ng-if="myinfoCtrl.savedData.length > 0">
+	<Label>First Name: </Label>   {{myinfoCtrl.savedData[0].firstname}} <br>
+	<Label>Last Name: </Label>    {{myinfoCtrl.savedData[0].lastname}} <br>
+	<Label>Email: </Label>   {{myinfoCtrl.savedData[0].email}} <br>
+	<Label>Phone: </Label>   {{myinfoCtrl.savedData[0].phone}} <br>
+	<Label>Favorite Dish: </Label>   {{myinfoCtrl.savedData[0].favoriteDish}} <br>
+
+	<!--Show menu item -->
+	<div class="menu-item-tile col-md-6">
+	  <div class="row">
+	    <div class="col-sm-5">
+	      <div class="menu-item-photo">
+	        <div>{{myinfoCtrl.savedData[0].favMenuItem.short_name}}</div>
+ 	        <img class="img-responsive" width="250" height="150" ng-src="{{myinfoCtrl.basePath}}/images/{{myinfoCtrl.savedData[0].favMenuItem.short_name}}.jpg" alt="{{myinfoCtrl.savedData[0].favMenuItem.name}}">
+	      </div>
+	      <div class="menu-item-price">{{myinfoCtrl.savedData[0].favMenuItem.price_small | currency}}<span> {{myinfoCtrl.savedData[0].favMenuItem.small_portion_name}}</span> {{myinfoCtrl.savedData[0].favMenuItem.price_large | currency}} <span>{{myinfoCtrl.savedData[0].favMenuItem.large_portion_name}}</span></div>
+	    </div>
+	    <div class="menu-item-description col-sm-7">
+	      <h3 class="menu-item-title">{{myinfoCtrl.savedData[0].favMenuItem.name}}</h3>
+	      <p class="menu-item-details">{{myinfoCtrl.savedData[0].favMenuItem.description}}</p>
+	    </div> 
+	  </div>
+	  <hr class="visible-xs">
+	</div>
+	</div>
+
+
+
+</div>
+
+

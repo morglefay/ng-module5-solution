@@ -1,0 +1,60 @@
+<div class="container">
+  <fieldset>
+    <H2>Sign Up for Newsletter </H2>
+    <br>
+    <form name='regForm' novalidate>
+
+      <Label>First Name: </Label>   <input type="text" name="firstname"
+        ng-model="signupCtrl.user.firstname"
+        required>
+        <span ng-if="regForm.firstname.$invalid && regForm.firstname.$touched">
+          First Name is required.
+        </span>
+        <br>
+
+      <Label>Last Name: </Label>    <input type="text" name="lastname"
+        ng-model="signupCtrl.user.lastname"
+        required>
+        <span ng-if="regForm.lastname.$invalid && regForm.lastname.$touched">
+          Last Name is required.
+        </span>
+        <br>
+
+      <Label>Email: </Label>   <input type="email" name="email"
+        ng-model="signupCtrl.user.email"
+        required>
+        <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+          Must be a valid email address: handle@domain format
+        </span>
+        <br>
+
+      <Label>Phone: </Label>   <input type="text" name="phone" placeholder="###-###-####"
+        ng-model="signupCtrl.user.phone"
+        pattern="(\d{3})-(\d{3})-(\d{4})"
+        required>
+        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+          Phone is required and must be in the format ###-###-####.
+        </span>
+        <br>
+
+      <Label>Favorite Dish: </Label>   <input type="text" name="favoriteDish" placeholder="Menu item short name"
+        ng-model="signupCtrl.user.favoriteDish">
+
+      <span id="info" ng-if="signupCtrl.completed && !signupCtrl.isValid">
+        No such menu number exists
+      </span>
+      <br>
+      
+      <button
+        ng-disabled="regForm.$invalid"
+        ng-click="signupCtrl.submit()">Submit</button>
+
+      <div id="info" ng-if="signupCtrl.isSaved">
+        Your information has been saved
+      </div>
+
+
+    </form>
+  </fieldset>
+
+</div>
